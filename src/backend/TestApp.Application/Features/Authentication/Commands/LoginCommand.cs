@@ -11,7 +11,6 @@ using TestApp.Application.Features.Authentication.DTOs;
 
 public record LoginCommand(string Username, string Password) : IRequest<AuthResultDto>;
 
-
 public class LoginCommandHandler(
     IAppDbContext db,
     IJwtTokenGenerator jwt,

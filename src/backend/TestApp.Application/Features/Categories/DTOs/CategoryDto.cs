@@ -1,3 +1,5 @@
 ﻿namespace TestApp.Application.Features.Categories.DTOs;
 
-public record CategoryDto();
+using TestApp.Domain.Entities;
+
+public record CategoryDto(long Id, string Name, List<Test> Tests);

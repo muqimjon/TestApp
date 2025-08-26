@@ -2,11 +2,9 @@
 
 using TestApp.Domain.Entities;
 
-public record TestSessionDto
-{
-    public long UserId { get; set; } = default!;
-    public long TestId { get; set; } = default!;
-    public DateTime StartedAt { get; set; }
-    public DateTime? CompletedAt { get; set; }
-    public ICollection<SessionQuestion> Questions { get; set; } = [];
-}
+public record TestSessionDto(
+    long UserId,
+    long TestId,
+    DateTime StartedAt,
+    DateTime? CompletedAt,
+    ICollection<SessionQuestion> Questions);

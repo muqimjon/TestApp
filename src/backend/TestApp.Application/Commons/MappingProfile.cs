@@ -17,5 +17,8 @@ public class MappingProfile : Profile
         CreateMap<Question, QuestionDto>();
         CreateMap<Category, CategoryDto>();
         CreateMap<TestSession, TestSessionDto>();
+        CreateMap<Question, QuestionDto>();
+        CreateMap<Category, CategoryDto>();
+        CreateMap<Test, TestDto>();
     }
 }

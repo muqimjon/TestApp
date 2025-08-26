@@ -52,14 +52,12 @@ public class SubmitTestSessionCommandHandler(
         session.CompletedAt = DateTime.UtcNow;
         await db.SaveAsync(cancellationToken);
 
-        var result = new SessionResultDto
-        {
-            SessionId = session.Id,
-            TotalQuestions = total,
-            CorrectAnswers = correct,
-            WrongAnswers = wrong,
-            Percentage = percent
-        };
+        var result = new SessionResultDto(
+            SessionId: session.Id,
+            TotalQuestions: total,
+            CorrectAnswers: correct,
+            WrongAnswers: wrong,
+            Percentage: percent);
 
         return result;
     }

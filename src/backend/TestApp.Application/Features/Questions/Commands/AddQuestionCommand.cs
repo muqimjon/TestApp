@@ -28,14 +28,12 @@ public class AddQuestionCommandHandler(
         };
 
         foreach (var optDto in request.Options)
-            question.Options.Add(
-                new AnswerOption
-                {
-                    Text = optDto.Text,
-                    IsCorrect = optDto.IsCorrect,
-                    QuestionId = question.Id,
-                    CreatedAt = DateTimeOffset.UtcNow
-                });
+            question.Options.Add(new AnswerOption
+            {
+                Text = optDto.Text,
+                IsCorrect = optDto.IsCorrect
+            });
+
 
         db.Questions.Add(question);
         await db.SaveAsync(cancellationToken);

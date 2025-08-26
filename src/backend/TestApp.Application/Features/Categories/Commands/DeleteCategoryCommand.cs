@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore;
 using TestApp.Application.Commons.Exceptions;
 using TestApp.Application.Commons.Interfaces;
 
-public record DeleteCategoryCommand(int Id) : IRequest<int>;
+public record DeleteCategoryCommand(long Id) : IRequest<long>;
 
 public class DeleteCategoryCommandHandler(IAppDbContext db)
-        : IRequestHandler<DeleteCategoryCommand, int>
+        : IRequestHandler<DeleteCategoryCommand, long>
 {
-    public async Task<int> Handle(
+    public async Task<long> Handle(
         DeleteCategoryCommand request,
         CancellationToken cancellationToken)
     {
@@ -21,7 +21,8 @@ public class DeleteCategoryCommandHandler(IAppDbContext db)
         ?? throw new NotFoundException($"Category with Id={request.Id} not found.");
 
         db.Categories.Remove(entity);
+        await db.SaveAsync(cancellationToken);
 
-        return await db.SaveAsync(cancellationToken);
+        return request.Id;
     }
 }

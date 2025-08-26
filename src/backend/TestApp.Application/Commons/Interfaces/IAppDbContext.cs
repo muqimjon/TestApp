@@ -10,6 +10,7 @@ public interface IAppDbContext
     DbSet<Question> Questions { get; }
     DbSet<AnswerOption> AnswerOptions { get; }
     DbSet<TestSession> TestSessions { get; }
+    DbSet<SessionQuestion> SessionQuestions { get; }
     DbSet<Category> Categories { get; }
     Task<int> SaveAsync(CancellationToken cancellationToken);
 }
