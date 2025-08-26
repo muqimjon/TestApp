@@ -1,3 +1,3 @@
 ﻿namespace TestApp.Application.Features.Authentication.DTOs;
 
-public record UserDto(Guid Id, string FullName, string Username);
+public record UserDto(long Id, string FullName, string Username);

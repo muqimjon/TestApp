@@ -1,16 +1,16 @@
 ﻿namespace TestApp.Application;
 
+using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using TestApp.Application.Commons;
 
 public static class DependencyInjection
 {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
-        var assembly = typeof(DependencyInjection).Assembly;
-
-        services.AddMediatR(assembly);
-        services.AddAutoMapper(assembly);
+        services.AddMediatR(typeof(DependencyInjection).Assembly);
+        services.AddAutoMapper(typeof(MappingProfile));
 
         return services;
     }
