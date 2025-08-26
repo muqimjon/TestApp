@@ -6,4 +6,7 @@ public class SessionQuestion : Auditable
     public long QuestionId { get; set; }
     public long SelectedOptionId { get; set; }
     public bool IsCorrect { get; set; }
+
+    public TestSession TestSession { get; set; } = null!;
+    public Question Question { get; set; } = null!;
 }

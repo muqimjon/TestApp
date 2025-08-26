@@ -1,0 +1,8 @@
+﻿namespace TestApp.Application.Commons.Exceptions;
+
+using System.Net;
+
+public class UnauthorizedException(string message) : TestAppException(message)
+{
+    public HttpStatusCode StatusCode { get; init; } = HttpStatusCode.Unauthorized;
+}
