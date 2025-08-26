@@ -417,3 +417,4 @@ FodyWeavers.xsd
 *.msm
 *.msp
 /src/backend/TestApp.Infrastructure/Persistence/Migrations
+/src/backend/TestApp.WebApi/appsettings.Development.json
