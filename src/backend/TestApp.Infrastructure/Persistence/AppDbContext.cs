@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using TestApp.Application.Commons.Interfaces;
 using TestApp.Domain.Entities;
 
-internal class AppDbContext(DbContextOptions options) : DbContext(options), IAppDbContext
+public class AppDbContext(DbContextOptions options) : DbContext(options), IAppDbContext
 {
     public DbSet<User> Users { get; set; }
     public DbSet<Test> Tests { get; set; }

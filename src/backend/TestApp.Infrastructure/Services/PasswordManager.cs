@@ -2,7 +2,7 @@
 
 using TestApp.Application.Commons.Interfaces;
 
-internal class PasswordManager : IPasswordManager
+public class PasswordManager : IPasswordManager
 {
     public string Hash(string password)
         => BCrypt.Net.BCrypt.HashPassword(password);

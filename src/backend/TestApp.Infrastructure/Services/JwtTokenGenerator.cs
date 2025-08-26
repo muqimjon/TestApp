@@ -9,7 +9,7 @@ using System.Text;
 using TestApp.Application.Commons.Interfaces;
 using TestApp.Domain.Entities;
 
-internal class JwtTokenGenerator : IJwtTokenGenerator
+public class JwtTokenGenerator : IJwtTokenGenerator
 {
     private readonly JwtSettings settings;
     private readonly byte[] key;

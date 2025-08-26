@@ -13,11 +13,13 @@ public static class DependencyInjection
         this IServiceCollection services,
         IConfiguration conf)
     {
-        services.AddDbContext<AppDbContext>(options =>
+        services.AddDbContext<IAppDbContext, AppDbContext>(options =>
             options.UseNpgsql(conf.GetConnectionString("DefaultConnection")));
 
         services.Configure<JwtSettings>(opts => conf.GetSection("JwtSettings"))
             .AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+
+        services.AddScoped<IPasswordManager, PasswordManager>();
 
         return services;
     }

@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 using TestApp.Application.Commons.Interfaces;
 using TestApp.Application.Features.Questions.DTOs;
 
-public record GetQuestionsByTestId(int TestId) : IRequest<List<QuestionDto>>;
+public record GetQuestionsByTestIdQuery(long TestId) : IRequest<List<QuestionDto>>;
 
-public class GetQuestionsByTestIdHandler(
+public class GetQuestionsByTestIdQueryHandler(
     IAppDbContext db,
     IMapper mp)
-    : IRequestHandler<GetQuestionsByTestId, List<QuestionDto>>
+    : IRequestHandler<GetQuestionsByTestIdQuery, List<QuestionDto>>
 {
     public async Task<List<QuestionDto>> Handle(
-        GetQuestionsByTestId request,
+        GetQuestionsByTestIdQuery request,
         CancellationToken cancellationToken)
     {
         var questions = await db.Questions

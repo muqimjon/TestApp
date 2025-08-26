@@ -7,7 +7,7 @@ using TestApp.Application.Commons.Exceptions;
 using TestApp.Application.Commons.Interfaces;
 using TestApp.Application.Features.Categories.DTOs;
 
-public record GetCategoryByIdQuery(int Id) : IRequest<CategoryDto>;
+public record GetCategoryByIdQuery(long Id) : IRequest<CategoryDto>;
 
 public class GetCategoryByIdQueryHandler(
     IAppDbContext db,
