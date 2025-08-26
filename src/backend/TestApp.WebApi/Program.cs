@@ -1,5 +1,6 @@
 using TestApp.Application;
 using TestApp.Infrastructure;
+using TestApp.WebApi.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,5 +29,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 app.Run();

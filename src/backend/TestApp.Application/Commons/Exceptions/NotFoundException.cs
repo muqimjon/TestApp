@@ -2,7 +2,4 @@
 
 using System.Net;
 
-public class NotFoundException(string message) : TestAppException(message)
-{
-    public HttpStatusCode StatusCode { get; init; } = HttpStatusCode.NotFound;
-}
+public class NotFoundException(string message) : TestAppException(message, HttpStatusCode.NotFound);

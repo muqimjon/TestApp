@@ -2,7 +2,4 @@
 
 using System.Net;
 
-public class UnauthorizedException(string message) : TestAppException(message)
-{
-    public HttpStatusCode StatusCode { get; init; } = HttpStatusCode.Unauthorized;
-}
+public class UnauthorizedException(string message) : TestAppException(message, HttpStatusCode.Unauthorized);

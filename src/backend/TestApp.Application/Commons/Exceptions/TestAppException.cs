@@ -1,3 +1,8 @@
-﻿namespace TestApp.Application.Commons.Exceptions;
+﻿using System.Net;
 
-public class TestAppException(string message) : Exception(message);
+namespace TestApp.Application.Commons.Exceptions;
+
+public class TestAppException(string message, HttpStatusCode Status) : Exception(message)
+{
+    public HttpStatusCode StatusCode { get; init; } = Status;
+}
