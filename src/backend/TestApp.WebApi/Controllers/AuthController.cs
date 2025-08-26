@@ -7,7 +7,7 @@ using TestApp.WebApi.Models;
 
 public class AuthController : BaseController
 {
-    [HttpGet("login")]
+    [HttpPost("login")]
     public async Task<IActionResult> Login(LoginCommand loginCommand)
         => Ok(new Response { Data = await Mediator.Send(loginCommand) });
 

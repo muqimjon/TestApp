@@ -8,6 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 public class BaseController : ControllerBase
 {
     private IMediator? mediator;
-    protected IMediator Mediator 
+    protected IMediator Mediator
         => mediator ??= HttpContext.RequestServices.GetRequiredService<IMediator>();
 }

@@ -16,9 +16,10 @@ public static class DependencyInjection
         services.AddDbContext<IAppDbContext, AppDbContext>(options =>
             options.UseNpgsql(conf.GetConnectionString("DefaultConnection")));
 
-        services.Configure<JwtSettings>(opts => conf.GetSection("JwtSettings"))
-            .AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+        services.Configure<JwtSettings>(options
+            => conf.GetSection("JwtSettings").Bind(options));
 
+        services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
         services.AddScoped<IPasswordManager, PasswordManager>();
 
         return services;
