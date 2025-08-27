@@ -10,26 +10,22 @@
     <Grid Margin="40">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="400">
 
-            <!-- Natija Foizi -->
             <TextBlock x:Name="PercentText"
                        FontSize="40"
                        FontWeight="Bold"
                        TextAlignment="Center"
                        Margin="0,0,0,20"/>
 
-            <!-- Rangli progress -->
             <ProgressBar x:Name="ResultProgress"
                          Height="30"
                          Maximum="100"
                          Margin="0,0,0,20"/>
 
-            <!-- To'g'ri/Noto'g'ri -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
                 <TextBlock x:Name="CorrectText" Margin="10" FontSize="16"/>
                 <TextBlock x:Name="IncorrectText" Margin="10" FontSize="16"/>
             </StackPanel>
 
-            <!-- Tugmalar -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Content="🔄 Qayta topshirish" Width="150" Margin="10"/>
                 <Button Content="🏠 Asosiy sahifaga" Width="150" Margin="10"/>

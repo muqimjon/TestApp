@@ -37,6 +37,8 @@ public partial class CategoryTabs : UserControl
 
         foreach (var category in categories)
         {
+            if (category.Tests.Count == 0)
+                continue;
             var btn = CreateCategoryButton(category.Id, category.Name);
             CategoriesPanel.Children.Add(btn);
         }

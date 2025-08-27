@@ -13,4 +13,7 @@ public interface IApiCategories
 
     [Post("/categories/create")]
     Task CreateCategory(string name);
+
+    [Post("/categories/find-or-create")]
+    Task<Response<CategoryDto>> FindOrCreate(string name);
 }

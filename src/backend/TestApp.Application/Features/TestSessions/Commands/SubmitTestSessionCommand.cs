@@ -2,6 +2,7 @@
 
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using TestApp.Application.Commons.Exceptions;
 using TestApp.Application.Commons.Interfaces;
 using TestApp.Application.Features.TestSessions.DTOs;
 
@@ -26,13 +27,13 @@ public class SubmitTestSessionCommandHandler(
                 ts.Id == request.SessionId &&
                 ts.CompletedAt == null,
                 cancellationToken)
-            ?? throw new KeyNotFoundException($"Session {request.SessionId} not found or already completed.");
+            ?? throw new NotFoundException($"Session {request.SessionId} not found or already completed.");
 
         foreach (var submission in request.Answers)
         {
             var sq = session.Questions
                 .FirstOrDefault(q => q.QuestionId == submission.QuestionId);
-            if (sq == null)
+            if (sq is null)
                 continue;
 
             sq.SelectedOptionId = submission.SelectedOptionId;

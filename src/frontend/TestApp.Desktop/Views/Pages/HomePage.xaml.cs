@@ -22,7 +22,7 @@ public partial class HomePage : Page
         CategoryTabs.CategorySelected += OnCategorySelected;
 
         var allTests = await api.GetAllTests();
-        if(allTests.StatusCode != 200)
+        if (allTests.StatusCode != 200)
             return;
         TestsList.ItemsSource = allTests.Data;
     }
@@ -37,7 +37,7 @@ public partial class HomePage : Page
         else
         {
             var tests = await api.GetTestsByCategoryId(categoryId);
-            if(tests.StatusCode != 200)
+            if (tests.StatusCode != 200)
                 return;
 
             TestsList.ItemsSource = tests.Data;

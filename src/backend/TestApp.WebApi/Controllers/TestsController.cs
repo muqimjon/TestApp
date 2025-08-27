@@ -4,10 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using TestApp.Application.Features.Tests.Commands;
 using TestApp.Application.Features.Tests.Queries;
 using TestApp.Application.Features.TestSessions.Commands;
-using TestApp.Infrastructure.Services;
 using TestApp.WebApi.Models;
 
-public class TestsController(ITestUploadService uploadService) : BaseController
+public class TestsController : BaseController
 {
     [HttpPost("create")]
     public async Task<IActionResult> CreateTest(CreateTestCommand command)

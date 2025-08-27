@@ -2,7 +2,6 @@
 
 using System.Threading.Tasks;
 using TestApp.ClientService.Api;
-using TestApp.ClientService.Models;
 using TestApp.ClientService.Models.Auth;
 
 public class AuthService

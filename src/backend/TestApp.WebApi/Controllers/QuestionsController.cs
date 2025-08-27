@@ -14,4 +14,8 @@ public class QuestionsController : BaseController
     [HttpGet("by-test/{testId:long}")]
     public async Task<IActionResult> GetQuestionsByTestId(long testId)
         => Ok(new Response { Data = await Mediator.Send(new GetQuestionsByTestIdQuery(testId)) });
+
+    [HttpPut("update")]
+    public async Task<IActionResult> UpdateQuestion(UpdateQuestionCommand command)
+        => Ok(new Response { Data = await Mediator.Send(command) });
 }
