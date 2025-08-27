@@ -14,6 +14,6 @@ public class AppDbContext(DbContextOptions options) : DbContext(options), IAppDb
     public DbSet<SessionQuestion> SessionQuestions { get; set; }
     public DbSet<Category> Categories { get; set; }
 
-    public async Task<int> SaveAsync(CancellationToken cancellationToken)
+    public async Task<int> SaveAsync(CancellationToken cancellationToken = default)
         => await SaveChangesAsync(cancellationToken);
 }

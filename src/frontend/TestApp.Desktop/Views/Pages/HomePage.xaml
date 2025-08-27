@@ -1,0 +1,30 @@
+﻿<Page x:Class="TestApp.Desktop.Views.Pages.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:TestApp.Desktop.Views.Components"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="HomePage">
+    <DockPanel>
+        <local:CategoryTabs DockPanel.Dock="Top"/>
+
+        <!-- Testlar ro'yxati -->
+        <ScrollViewer>
+            <ItemsControl x:Name="TestsList" Margin="20">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="1" BorderBrush="#ccc" CornerRadius="5" Margin="5" Padding="10">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="16"/>
+                                <TextBlock Text="{Binding Description}" Foreground="Gray"/>
+                                <Button Content="Boshlash" HorizontalAlignment="Right" Tag="{Binding Id}"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </DockPanel>
+</Page>

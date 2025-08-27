@@ -4,9 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using TestApp.Application.Features.Tests.Commands;
 using TestApp.Application.Features.Tests.Queries;
 using TestApp.Application.Features.TestSessions.Commands;
+using TestApp.Infrastructure.Services;
 using TestApp.WebApi.Models;
 
-public class TestsController : BaseController
+public class TestsController(ITestUploadService uploadService) : BaseController
 {
     [HttpPost("create")]
     public async Task<IActionResult> CreateTest(CreateTestCommand command)
@@ -20,7 +21,11 @@ public class TestsController : BaseController
     public async Task<IActionResult> SubmitTest(SubmitTestSessionCommand command)
         => Ok(new Response { Data = await Mediator.Send(command) });
 
-    [HttpGet("all")]
+    [HttpGet]
     public async Task<IActionResult> GetTests()
         => Ok(new Response { Data = await Mediator.Send(new GetTestsQuery()) });
+
+    [HttpGet("by-category/{categoryId:long}")]
+    public async Task<IActionResult> GetTestsByCategoryId(long categoryId)
+        => Ok(new Response { Data = await Mediator.Send(new GetTestsByCategoryIdQuery(categoryId)) });
 }

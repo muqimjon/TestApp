@@ -1,6 +1,5 @@
 ﻿namespace TestApp.Application;
 
-using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using TestApp.Application.Commons;

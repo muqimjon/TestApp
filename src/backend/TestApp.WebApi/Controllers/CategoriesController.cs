@@ -19,7 +19,11 @@ public class CategoriesController : BaseController
     public async Task<IActionResult> GetCategoryById(long id)
         => Ok(new Response { Data = await Mediator.Send(new GetCategoryByIdQuery(id)) });
 
-    [HttpGet("all")]
+    [HttpGet]
     public async Task<IActionResult> GetAllCategories()
-        => Ok(new Response { Data = await Mediator.Send(new GetCategoriesQuery()) });
+        => Ok(new Response { Data = await Mediator.Send(new GetAllCategoriesQuery()) });
+
+    [HttpPost("find-or-create")]
+    public async Task<IActionResult> FindOrCreateCategory(FindOrCreateCategoryCommand command)
+        => Ok(new Response { Data = await Mediator.Send(command) });
 }

@@ -6,18 +6,19 @@ using Microsoft.EntityFrameworkCore;
 using TestApp.Application.Commons.Interfaces;
 using TestApp.Application.Features.Categories.DTOs;
 
-public record GetCategoriesQuery() : IRequest<List<CategoryDto>>;
+public record GetAllCategoriesQuery : IRequest<List<CategoryDto>>;
 
-public class GetCategoriesQueryHandler(
+public class GetAllCategoriesQueryHandler(
     IAppDbContext db,
     IMapper mp)
-    : IRequestHandler<GetCategoriesQuery, List<CategoryDto>>
+    : IRequestHandler<GetAllCategoriesQuery, List<CategoryDto>>
 {
     public async Task<List<CategoryDto>> Handle(
-        GetCategoriesQuery request,
+        GetAllCategoriesQuery request,
         CancellationToken cancellationToken)
     {
         var list = await db.Categories
+                            .Include(c => c.Tests)
                             .AsNoTracking()
                             .ToListAsync(cancellationToken);
 

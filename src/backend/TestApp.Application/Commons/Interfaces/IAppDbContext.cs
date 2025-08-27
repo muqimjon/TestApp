@@ -12,5 +12,5 @@ public interface IAppDbContext
     DbSet<TestSession> TestSessions { get; }
     DbSet<SessionQuestion> SessionQuestions { get; }
     DbSet<Category> Categories { get; }
-    Task<int> SaveAsync(CancellationToken cancellationToken);
+    Task<int> SaveAsync(CancellationToken cancellationToken = default);
 }
