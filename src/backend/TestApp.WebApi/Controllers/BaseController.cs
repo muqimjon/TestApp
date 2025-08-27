@@ -1,10 +1,12 @@
 ﻿namespace TestApp.WebApi.Controllers;
 
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class BaseController : ControllerBase
 {
     private IMediator? mediator;

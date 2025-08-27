@@ -1,5 +1,6 @@
 using TestApp.Application;
 using TestApp.Infrastructure;
+using TestApp.WebApi.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,7 +30,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-//app.UseMiddleware<ExceptionHandlerMiddleware>();
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 app.UseCors(c => c
     .AllowAnyHeader()

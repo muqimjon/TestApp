@@ -14,7 +14,7 @@ public class UpdateQuestionCommandHandler(
 {
     public async Task<long> Handle(UpdateQuestionCommand request, CancellationToken cancellationToken)
     {
-        var entity = db.Questions.FirstOrDefault(q => q.Id == request.Id) 
+        var entity = db.Questions.FirstOrDefault(q => q.Id == request.Id)
             ?? throw new NotFoundException($"Question with Id={request.Id} not found.");
 
         mp.Map(request, entity);
